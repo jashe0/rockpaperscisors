@@ -10,6 +10,22 @@
 
 </head>
 <body>
-   
+    <script>
+        
+            function getComputerChoice() {
+                let computerChoice = ['rock', 'paper', 'scissors']
+                return computerChoice[Math.floor(Math.random() * computerChoice.length)]
+            }    
+        
+        /**function playRound(playerSelection, computerSelection) {
+            
+        }
+
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection)); **/
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection)
+    </script>   
 </body>
 </html>
