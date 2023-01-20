@@ -11,33 +11,50 @@
 </head>
 <body>
     <script>
-              
+                let playerCounter = 0
+                let computerCounter = 0
+                
+
                 function getComputerChoice() {
                 let computerChoice = ['rock', 'paper', 'scissors']
                 return computerChoice[Math.floor(Math.random() * computerChoice.length)]
             }    
         
             function playRound(playerSelection) {
-                let computerSelection = getComputerChoice();
+                let computerSelection = getComputerChoice()
                 let results =""
+                   
                 if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
                     (playerSelection == 'scissors' && computerSelection == 'paper') ||
                     (playerSelection == 'paper' && computerSelection == 'rock')){
-                     return results = ('You win! ' + (playerSelection) + ' beats ' + (computerSelection))
-                }   else if (playerSelection == computerSelection) {
+                        playerCounter=+1
+                        return results = ('You win! the score is ' + (playerCounter) + ' to ' + (computerCounter))
+                    }   else if (playerSelection == computerSelection) {
                     return results = ('Its a draw both chose ' + (computerSelection))
                 } else {
-                    return results = ('Computer wins! ' + (computerSelection) + ' beats ' + (playerSelection))
+                    computerCounter=+1
+                    return results = ('Computer wins! the score is '+(playerCounter) + ' to ' + (computerCounter) )
                 }
             }
 
-            let playerSelection = 'rock'; 
-            /**let computerSelection = getComputerChoice();**/
+            let playerSelection = 'paper'; 
             let gameOutcome = playRound(playerSelection);
-        
-            /**console.log('The Computer chose : ' + computerSelection)**/
+            
+                  
             console.log('The Player chose : ' + playerSelection)
-            console.log(gameOutcome)
+            
+            for (let i = 0; i < 5; i++) {
+                console.log(gameOutcome)                
+            }                   
+
+                       
+            function finalScore() {
+                let  finalResult = ''
+                return finalResult = ('The final result is ' + (playerCounter) + 'to '(computerCounter))
+            }
+
+            console.log(finalScore)
+            
     </script>   
 </body>
 </html>
