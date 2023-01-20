@@ -11,21 +11,33 @@
 </head>
 <body>
     <script>
-        
-            function getComputerChoice() {
+              
+                function getComputerChoice() {
                 let computerChoice = ['rock', 'paper', 'scissors']
                 return computerChoice[Math.floor(Math.random() * computerChoice.length)]
             }    
         
-        /**function playRound(playerSelection, computerSelection) {
-            
-        }
+            function playRound(playerSelection) {
+                let computerSelection = getComputerChoice();
+                let results =""
+                if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+                    (playerSelection == 'scissors' && computerSelection == 'paper') ||
+                    (playerSelection == 'paper' && computerSelection == 'rock')){
+                     return results = ('You win! ' + (playerSelection) + ' beats ' + (computerSelection))
+                }   else if (playerSelection == computerSelection) {
+                    return results = ('Its a draw both chose ' + (computerSelection))
+                } else {
+                    return results = ('Computer wins! ' + (computerSelection) + ' beats ' + (playerSelection))
+                }
+            }
 
-        const playerSelection = "rock";
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection)); **/
-        const computerSelection = getComputerChoice();
-        console.log(computerSelection)
+            let playerSelection = 'rock'; 
+            /**let computerSelection = getComputerChoice();**/
+            let gameOutcome = playRound(playerSelection);
+        
+            /**console.log('The Computer chose : ' + computerSelection)**/
+            console.log('The Player chose : ' + playerSelection)
+            console.log(gameOutcome)
     </script>   
 </body>
 </html>
