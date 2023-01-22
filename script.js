@@ -1,4 +1,4 @@
-    const computerOptions = ["rock", "paper", "scissors"]
+    const computerOptions = ["rock", "paper", "scissors"];
                 
 
     function getComputerChoice() {
@@ -35,35 +35,28 @@
     }
 
     function getPlayerChoice() {
-        let validInput = false
-        while (validInput == false){
-                const playerChoice = prompt("Rock, paper or scissors?")
+        let validatedInput = false;
+        while(validatedInput == false){
+                const playerChoice = prompt("Rock, paper or scissors?");
                         if (playerChoice == null){
-                            continue
+                            continue;
                         } 
-                        const choiceInLower = playerChoice.toLowerCase()
+                        const choiceInLower = playerChoice.toLowerCase();
                         if (computerOptions.includes(choiceInLower)){
-                            validInput = true
-                            return choiceInLower
+                            validatedInput = true;
+                            return choiceInLower;
                         }
         }
-    }
-
-    const playerSelection = getPlayerChoice()
-    const computerSelection =  getComputerChoice()
-    console.log(playRound(playerSelection,computerSelection))
-
-
-    /**
+    } 
 
     function game() {
                 console.log('Welcome!')
                 for (let i = 0; i < 5; i++) {
-                const playerSelection = getPlayerChoice()  
-                const computerSelection =  getComputerChoice()
-                console.log(playRound(playerSelection,computerSelection))
+                const playerSelection = getPlayerChoice();
+                const computerSelection =  getComputerChoice();
+                console.log(playRound(playerSelection,computerSelection));
             }                   
             }
     
-    game()    **/    
+    game()      
             
