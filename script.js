@@ -63,15 +63,14 @@
                     computerScore++;
                 }
                 }    
-                console.log("Game over")
+                 console.log("Game over")
                 if(playerScore > computerScore){
                     console.log("Player won the game!");
                 }else if (playerScore < computerScore){
                     console.log("Computer won the game!");
                 }else{
                     console.log("It was a tie!"); 
-                }             
-            }
-    
+                }        
+            }   
     game()      
             
