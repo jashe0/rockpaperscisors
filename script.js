@@ -1,5 +1,8 @@
     const computerOptions = ["rock", "paper", "scissors"];
-                
+    const rockButton = document.querySelector('.rock');
+    const paperButton = document.querySelector('.paper');
+    const scissorsButton =  document.querySelector('.scissors');           
+    const outcomeDiv = document.querySelector('.outcome'); 
 
     function getComputerChoice() {
         const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)]
@@ -24,17 +27,27 @@
     function playRound(playerSelection,computerSelection) {                
         const result = checkWinner(playerSelection,computerSelection)
         if (result == "Tie"){
-            return "It's a tie!"
+            const p = document.createElement('p');
+            p.innerText = "It's a tie!"
+            outcomeDiv.appendChild(p)
+            /**return "It's a tie!"**/
         } else if (result == "Player"){
-            return "You win! " + (playerSelection) + " beats " +(computerSelection)
+            /**return "You win! " + (playerSelection) + " beats " +(computerSelection)**/
+            const p = document.createElement('p');
+            p.innerText = "You win! " + (playerSelection) + " beats " +(computerSelection)
+            outcomeDiv.appendChild(p)
         } else {
-            return "You lose! " + (computerSelection) + " beat " +(playerSelection)
+            /**return "You lose! " + (computerSelection) + " beat " +(playerSelection)**/
+            const p = document.createElement('p');
+            p.innerText = "You lose! " + (computerSelection) + " beat " +(playerSelection)
+            outcomeDiv.appendChild(p)
+
         }
                 
             
     }
 
-    function getPlayerChoice() {
+    /** function getPlayerChoice() {
         let validatedInput = false;
         while(validatedInput == false){
                 const playerChoice = prompt("Rock, paper or scissors?");
@@ -47,9 +60,31 @@
                             return choiceInLower;
                         }
         }
-    } 
+    } **/
 
-    function game() {
+    rockButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = 'rock'
+        playRound(playerSelection,computerSelection);
+    } 
+    );
+
+    paperButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = 'paper'
+        playRound(playerSelection,computerSelection);
+    } 
+    );
+
+    scissorsButton.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        const playerSelection = 'scissors'
+        playRound(playerSelection,computerSelection);
+    } 
+    );
+
+
+    /**function game() {
                 let playerScore = 0;
                 let computerScore = 0;
                 console.log("Welcome!")
@@ -72,5 +107,5 @@
                     console.log("It was a tie!"); 
                 }        
             }   
-    game()      
+    game()**/      
             
