@@ -9,6 +9,20 @@
     const playerScoreSpan = document.querySelector('.player-score');
     const computerScoreSpan = document.querySelector('.computer-score')
 
+    function resetGame(){
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+            
+        const playAgainButton = document.createElement("button");
+        playAgainButton.textContent = "Play Again!";
+        outcomeDiv.appendChild(playAgainButton);
+            
+        playAgainButton.addEventListener('click', () => {
+            location.reload();
+        })
+    }
+
     function getComputerChoice() {
         const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)]
         return computerChoice
@@ -37,12 +51,10 @@
         } else if (result == "Player"){            
             p.innerText = "You win! " + (playerSelection) + " beats " +(computerSelection)
             playerScore ++;
-            console.log(playerScore)
             checkFinalWinner(playerScore, computerScore);
         } else {            
             p.innerText = "You lose! " + (computerSelection) + " beat " +(playerSelection)
             computerScore ++;
-            console.log(computerScore)
             checkFinalWinner(playerScore, computerScore);
         }
         outcomeDiv.appendChild(p)       
@@ -54,9 +66,11 @@
         if(playerScore === 5){
             h2.classList.add('player-won');
             h2.innerText = `You won ${playerScore} to ${computerScore}`;
+            resetGame();
         } else if (computerScore === 5){            
             h2.classList.add('computer-won');
             h2.innerText = `You lost ${playerScore} to ${computerScore}`;            
+            resetGame();
         }
         outcomeDiv.append(h2);
     }
